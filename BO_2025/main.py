@@ -13,7 +13,9 @@ df['Timestamp'] = pd.to_datetime(df['Timestamp'])
 # === Compute phase angles ===
 def compute_phase_angle(df, freq_col, nominal_freq=50.0):
     timestamps = df['Timestamp']
-    freqs = df[freq_col].interpolate().fillna(method='bfill').fillna(method='ffill').values
+    freqs = df[freq_col].interpolate().bfill().ffill().values
+
+
     time_sec = (timestamps - timestamps.iloc[0]).dt.total_seconds().values
     dt = np.diff(time_sec, prepend=time_sec[0])
     delta_f = freqs - nominal_freq
@@ -39,8 +41,6 @@ for col in phase_angle_cols:
 # === Dash App ===
 app = dash.Dash(__name__)
 app.title = "Frequency & Phase Angle Visualizer"
-
-sdfs
 
 
 app.layout = html.Div([
