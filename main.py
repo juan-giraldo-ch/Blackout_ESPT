@@ -32,7 +32,7 @@ import os
 filepath = os.path.join(os.path.dirname(__file__), '28042025_Spain and Portugal_UTCtime.csv')
 df = pd.read_csv(filepath)
 df['Timestamp'] = pd.to_datetime(df['Timestamp'])
-
+print(f"File exists: {os.path.exists(filepath)}")
 # === Compute phase angles ===
 def compute_phase_angle(df, freq_col, nominal_freq=50.0):
     timestamps = df['Timestamp']
