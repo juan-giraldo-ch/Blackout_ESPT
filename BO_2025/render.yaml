@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: dash-app
-    env: python
-    plan: free
-    buildCommand: ""
-    startCommand: gunicorn main:server
-    rootDir: BO_2025
