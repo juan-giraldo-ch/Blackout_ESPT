@@ -25,10 +25,12 @@ import dash
 from dash import dcc, html, Input, Output
 import plotly.graph_objs as go
 import numpy as np
+import os
 
 
 # Load and preprocess the CSV
-df = pd.read_csv('28042025_Spain and Portugal_UTCtime.csv')
+filepath = os.path.join(os.path.dirname(__file__), '28042025_Spain and Portugal_UTCtime.csv')
+df = pd.read_csv(filepath)
 df['Timestamp'] = pd.to_datetime(df['Timestamp'])
 
 # === Compute phase angles ===
