@@ -82,6 +82,7 @@ layout_watermark = dict(
 
 # === Dash App ===
 app = dash.Dash(__name__)
+server = app.server  # 👈 this is required
 app.title = "Frequency & Phase Angle Visualizer"
 
 
