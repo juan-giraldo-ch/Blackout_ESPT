@@ -5,3 +5,4 @@ services:
     plan: free
     buildCommand: ""
     startCommand: gunicorn main:server
+    rootDir: BO_2025
