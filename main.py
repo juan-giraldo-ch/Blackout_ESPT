@@ -27,6 +27,7 @@ import plotly.graph_objs as go
 import numpy as np
 import os
 
+#TODO: Make it run in "Render"
 
 # Load and preprocess the CSV
 filepath = os.path.join(os.path.dirname(__file__), '28042025_Spain and Portugal_UTCtime.csv')
@@ -201,4 +202,5 @@ def update_graph(selected_stations, mode):
     }
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run_server(debug=False, host='0.0.0.0', port=8080)
