@@ -50,6 +50,7 @@ def compute_phase_angle(df, freq_col, nominal_freq=50.0):
 
 # Get all frequency columns
 frequency_columns = [col for col in df.columns if 'Frequency' in col]
+print(frequency_columns[:2])
 
 # Compute absolute phase angles
 phase_angle_cols = []
@@ -99,7 +100,7 @@ app.layout = html.Div([
             dcc.Dropdown(
                 id='station-selector',
                 options=[{'label': col.replace(':Frequency', ''), 'value': col} for col in frequency_columns],
-                value=['LV_Daugavpils','ES_Malaga'],#frequency_columns[:2],
+                value=['LV_Daugavpils:Frequency', 'ES_Malaga:Frequency'],#frequency_columns[:2],
                 multi=True
             )
         ], style={'width': '48%', 'display': 'inline-block', 'paddingRight': '1%'}),
@@ -203,5 +204,5 @@ def update_graph(selected_stations, mode):
     }
 
 if __name__ == '__main__':
-    # app.run(debug=True)
-    app.run_server(debug=False, host='0.0.0.0', port=8080)
+    app.run(debug=True)
+    # app.run_server(debug=False, host='0.0.0.0', port=8080)
