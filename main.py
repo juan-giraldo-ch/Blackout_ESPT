@@ -99,7 +99,7 @@ app.layout = html.Div([
             dcc.Dropdown(
                 id='station-selector',
                 options=[{'label': col.replace(':Frequency', ''), 'value': col} for col in frequency_columns],
-                value=frequency_columns[:2],
+                value=['LV_Daugavpils','ES_Malaga'],#frequency_columns[:2],
                 multi=True
             )
         ], style={'width': '48%', 'display': 'inline-block', 'paddingRight': '1%'}),
